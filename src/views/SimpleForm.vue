@@ -15,30 +15,22 @@
 
       <h3>Name & describe your event</h3>
 
-      <label>Title</label>
-      <input
+      <BaseInput
         v-model="event.title"
-        type="text"
-        placeholder="Title"
-        class="field"
-      >
+        label="Title"
+      />
 
-      <label>Description</label>
-      <input
+      <BaseInput
         v-model="event.description"
-        type="text"
-        placeholder="Description"
-        class="field"
+        label="Description"
       />
 
       <h3>Where is your event?</h3>
 
-      <label>Location</label>
-      <input
+      <BaseInput
         v-model="event.location"
-        type="text"
-        placeholder="Location"
-        class="field"
+        label="Location"
+        @click="handleClick()"
       />
 
       <h3>Are pets allowed?</h3>

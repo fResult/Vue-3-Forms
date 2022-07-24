@@ -12,7 +12,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 html {
   -webkit-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
@@ -205,11 +205,16 @@ textarea {
   padding: 0 10px;
   font-size: 20px;
 }
-[type="text"]:focus,
-[type="number"]:focus,
-[type="search"]:focus,
-[type="password"]:focus {
-  border-color: #39b982;
+[type="text"],
+[type="number"],
+[type="search"],
+[type="password"],
+[type="checkbox"],
+[type="radio"] {
+  &:focus {
+    border-color: #39b982;
+    outline-color: #39b982;
+  }
 }
 ::-webkit-file-upload-button {
   -webkit-appearance: button;
