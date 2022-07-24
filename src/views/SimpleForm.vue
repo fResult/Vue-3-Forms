@@ -2,16 +2,11 @@
   <div>
     <h1>Create an event</h1>
     <form>
-
-      <label>Select a category</label>
-      <select v-model="event.category">
-        <option
-          v-for="option in categories"
-          :value="option"
-          :key="option"
-          :selected="option === event.category"
-        >{{ option }}</option>
-      </select>
+      <BaseSelect
+        v-model="event.category"
+        :options="categories"
+        label="Select a category"
+      />
 
       <h3>Name & describe your event</h3>
 
@@ -35,41 +30,23 @@
 
       <h3>Are pets allowed?</h3>
       <div>
-        <input
-            type="radio"
-            v-model="event.pets"
-            :value="1"
-            name="pets"
-          />
+        <input type="radio" v-model="event.pets" :value="1" name="pets" />
         <label>Yes</label>
       </div>
 
       <div>
-        <input
-          type="radio"
-          v-model="event.pets"
-          :value="0"
-          name="pets"
-        />
+        <input type="radio" v-model="event.pets" :value="0" name="pets" />
         <label>No</label>
       </div>
 
       <h3>Extras</h3>
       <div>
-        <input
-          type="checkbox"
-          v-model="event.extras.catering"
-          class="field"
-        />
+        <input type="checkbox" v-model="event.extras.catering" class="field" />
         <label>Catering</label>
       </div>
 
       <div>
-        <input
-          type="checkbox"
-          v-model="event.extras.music"
-          class="field"
-        />
+        <input type="checkbox" v-model="event.extras.music" class="field" />
         <label>Live music</label>
       </div>
 
@@ -79,7 +56,12 @@
 </template>
 
 <script>
+import BaseInput from '../components/BaseInput.vue'
+import BaseSelect from '../components/BaseSelect.vue'
+
 export default {
+  name: 'SimpleForm',
+  components: { BaseInput, BaseSelect },
   data () {
     return {
       categories: [
@@ -102,6 +84,11 @@ export default {
           music: false
         }
       }
+    }
+  },
+  methods: {
+    handleClick () {
+      console.log('test')
     }
   }
 }
